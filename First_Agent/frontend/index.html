@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Grafana Monitoring Agent</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <aside class="side-panel">
+        <div>
+          <p class="eyebrow">SRE Console</p>
+          <h1>Grafana Monitoring Agent</h1>
+          <p class="subtle">Supervisor-routed chat for Grafana health, infrastructure saturation, and PromQL checks.</p>
+        </div>
+
+        <section class="status-box">
+          <span class="status-dot" id="statusDot"></span>
+          <div>
+            <strong id="statusText">Checking backend</strong>
+            <p id="statusDetail">Backend: http://localhost:8005</p>
+          </div>
+        </section>
+
+        <div class="prompt-list">
+          <button data-prompt="Check Grafana health">Grafana health</button>
+          <button data-prompt="Show CPU health for last 1h">CPU last 1h</button>
+          <button data-prompt="Memory status for last 30m">Memory last 30m</button>
+          <button data-prompt="Any failing instances?">Failing instances</button>
+        </div>
+      </aside>
+
+      <section class="chat-panel" aria-label="Monitoring chat">
+        <div class="messages" id="messages">
+          <article class="message assistant">
+            <div class="avatar">SA</div>
+            <div class="bubble">
+              <p>Hi. Ask me about Grafana health, CPU, memory, disk, uptime, or send an explicit PromQL query.</p>
+            </div>
+          </article>
+        </div>
+
+        <form class="composer" id="chatForm">
+          <textarea id="messageInput" rows="1" placeholder="Ask about Grafana metrics..." autocomplete="off"></textarea>
+          <button type="submit" aria-label="Send message">
+            <span>Send</span>
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
+
